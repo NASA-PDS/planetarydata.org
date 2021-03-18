@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2008 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure xmlns='http://namespaces.zope.org'
+    xmlns:browser='http://namespaces.zope.org/browser'
+    i18n_domain='ipdasite.projectmgmt'>
+    <include package='plone.app.contentmenu'/>
+
+    <!-- Steering Committee Display -->
+    <browser:resource name='sc-display.gif' file='images/sc-display.gif'/>
+    <browser:page
+        class='.steeringcommitteedisplay.SteeringCommitteeDisplayView'
+        for='..interfaces.ISteeringCommitteeDisplay'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Steering Committee Display.'
+        for='..interfaces.ISteeringCommitteeDisplay'
+        menu='plone_displayviews'
+        title='Steering Committee Display view'
+    />
+
+    <!-- IPDA Home Page -->
+    <browser:resource name='ipda-home.gif' file='images/ipda-home.gif'/>
+    <browser:page
+        class='.ipdahome.IPDAHomeView'
+        for='..interfaces.IIPDAHome'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of the IPDA welcome page.'
+        for='..interfaces.IIPDAHome'
+        menu='plone_displayviews'
+        title='IPDA Home view'
+    />
+
+    <!-- IPDA Event -->
+    <browser:resource name='ipda-event.gif' file='images/ipda-event.gif'/>
+    <browser:page
+        class='.ipdaevent.IPDAEventView'
+        for='..interfaces.IIPDAEvent'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of an IPDA Event.'
+        for='..interfaces.IIPDAEvent'
+        menu='plone_displayviews'
+        title='IPDA Event view'
+    />
+
+    <!-- Project Folder -->
+    <browser:resource name='proj-folder.gif' file='images/proj-folder.gif'/>
+    <browser:page
+        class='.projectfolder.ProjectFolderView'
+        for='..interfaces.IProjectFolder'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Project Folder.'
+        for='..interfaces.IProjectFolder'
+        menu='plone_displayviews'
+        title='Project Folder View'
+    />
+
+    <!-- IPDA Project -->
+    <browser:resource name='project.gif' file='images/project.gif'/>
+	<browser:page
+		class='.ipdaproject.IPDAProjectView'
+		for='..interfaces.IIPDAProject'
+		name='view'
+		permission='zope2.View'
+	/>
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of an IPDA Project.'
+        for='..interfaces.IIPDAProject'
+        menu='plone_displayviews'
+        title='IPDA Project View'
+    />
+    
+    <!-- IPDA Document -->
+    <browser:resource name='ipda-document.gif' file='images/IPDA-document-icon.gif'/>
+	<browser:page
+		class='.ipdadocument.IPDADocumentView'
+		for='..interfaces.IIPDADocument'
+		name='view'
+		permission='zope2.View'
+	/>
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of an IPDA document.'
+        for='..interfaces.IIPDADocument'
+        menu='plone_displayviews'
+        title='IPDA Document View'
+    />
+
+    <!-- IPDA File -->
+    <browser:resource name='ipda-file.gif' file='images/IPDA-file-icon.gif'/>
+	<browser:page
+		class='.ipdafile.IPDAFileView'
+		for='..interfaces.IIPDAFile'
+		name='view'
+		permission='zope2.View'
+	/>
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of an IPDA file.'
+        for='..interfaces.IIPDAFile'
+        menu='plone_displayviews'
+        title='IPDA File View'
+    />
+</configure>

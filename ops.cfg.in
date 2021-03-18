@@ -1,0 +1,60 @@
+# IPDA - Operations Buildout
+# ==========================
+#
+# IMPORTANT: Edit the username+passwords in the instance-settings and
+# supervisor-settings sections below.  Update the other sections as
+# needed.
+#
+# Use this buildout for operations mode. You'll get:
+#
+# * Tomcat with the PDS Registry Service
+# * A ZEO database server
+# * A Zope operational instance
+# * Supervisor to run it all
+
+
+# Tomcat Settings
+# ---------------
+#
+# Fill in better username + passwords, please.
+[tomcat]
+username = tomcat-admin
+password = secret
+
+
+# Zope Instance Settings
+# ----------------------
+#
+# Fill in better username + passwords, please.
+[zope]
+username = zope-admin
+password = secret
+
+
+# Supervisor Settings
+# -------------------
+#
+# Fill in better username + passwords, please.
+[supervisor]
+username = supervisor-admin
+password = secret
+
+
+# Buildout
+# --------
+#
+# Nothing below here should need any changes.
+[buildout]
+update-versions-file = var/versions.cfg
+extends =
+    etc/base.cfg
+    etc/versions/known-good-versions.cfg
+parts =
+    lxml
+    ${buildout:registry-service-parts}
+    zeo
+    zope
+    zope-debug
+    backup
+    supervisor
+    python

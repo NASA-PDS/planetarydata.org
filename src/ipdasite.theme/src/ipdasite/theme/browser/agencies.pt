@@ -1,0 +1,11 @@
+<div id='ipda-member-agencies-wrapper' i18n:domain='ipdasite.theme' metal:define-macro='ipda-member-agencies'
+    tal:define='agencies view/agencies'>
+    <div id='ipda-member-agencies'>
+        <ul>
+            <li tal:repeat='agency agencies'>
+                <a href='#' title='Some Agency Or Other' id='agencyID'
+                    tal:attributes='href agency/url; title agency/description; id string:agencyIcon-${agency/id};'></a>
+            </li>
+        </ul>
+    </div>
+</div>

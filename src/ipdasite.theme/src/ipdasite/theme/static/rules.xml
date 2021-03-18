@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2012 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<rules xmlns='http://namespaces.plone.org/diazo'
+    xmlns:css='http://namespaces.plone.org/diazo/css'
+    xmlns:xsl='http://www.w3.org/1999/XSL/Transform'>
+    
+    <notheme if='$ajax_load' />
+    <notheme if-path='folder_rename_form' />
+    <theme href='index.html' css:if-content='#visual-portal-wrapper' />
+    
+    <rules css:if-content='#visual-portal-wrapper'>
+
+        <!-- Add Plone's additional html attributes -->
+        <merge attributes='lang' theme='/html' content='/html' />
+
+        <!-- Drop all meta tags from the theme -->
+        <drop theme='/html/head/meta' />
+        <!-- Put all Plone-generated meta tags in -->
+        <after theme-children='/html/head' content='/html/head/meta' />
+
+        <!-- Add stylesheets, scripts, and link tags (in order) -->
+        <after theme-children='/html/head' content='/html/head/style|/html/head/script|/html/head/link' />
+        <drop theme='/html/head/style' />
+        <drop theme='/html/head/script' />
+        <drop theme='/html/head/link' />
+
+        <!-- And the <base/> element; without it the password reset form doesn't work. -->
+        <before theme-children='/html/head' content='/html/head/base'/>
+
+        <!-- Page title -->
+        <replace theme='/html/head/title' content='/html/head/title' />
+
+        <!-- Copy various attributes on body tag. Important for per-section styling -->
+        <copy attributes='class id dir' theme='/html/body' content='/html/body' />
+        
+        <!-- Invisible links for accessibility, etc. -->
+        <before css:theme='#outer' content='id("portal-header")/p[@class="hiddenStructure"]'/>
+        <before css:theme='#outer' content='id("portal-personaltools-wrapper")'/>
+
+        <!-- Site logo -->
+        <replace css:theme-children='#header' css:content='#portal-logo' />
+
+        <!-- Global nav -->
+        <replace css:theme-children='#menu' css:content='#portal-globalnav' />
+
+        <!-- Portlets -->
+        <replace css:theme-children='#tertiaryContent' css:content='#portal-column-two' />
+        <drop attributes='class' css:content='#portal-column-two' />
+        <drop css:theme='#tertiaryContent' css:if-not-content='#portal-column-two' />
+        <replace css:theme-children='#secondaryContent' css:content='#portal-column-one' />
+        <drop attributes='class' css:content='#portal-column-one' />
+        <drop css:theme='#secondaryContent' css:if-not-content='#portal-column-one' />
+        <!-- When there's no column 2, adjust the margin so the main content can take up its space -->
+        <after theme-children='/html/head' css:if-not-content='#portal-column-two'>
+            <style type='text/css'>
+                #primaryContent {
+                    margin-left: 0 !important;
+                }
+            </style>
+        </after>
+
+        <!-- Site search; maybe use search portlet? -->
+        <!-- <after css:theme-children='#menu' css:content='#portal-searchbox' /> -->
+        <!-- But get rid of "only in current section" which no one uses and is just confusing -->
+        <drop css:content='.searchSection' />
+        <!-- to do: image search button -->
+
+        <!-- Main content -->
+        <replace css:theme-children='#primaryContent' css:content='#portal-column-content'/>
+        <drop attributes='class' css:content='#portal-column-content' />
+
+        <!-- Footer -->
+        <drop css:theme-children='#footer' />
+        <after css:theme='#footer' css:content='#portal-siteactions' />
+        <after css:theme='#footer' css:content='#ipda-member-agencies' />
+        <after css:theme='#footer' css:content='#portal-colophon' />
+
+    </rules>
+</rules>

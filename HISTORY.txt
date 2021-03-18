@@ -1,0 +1,168 @@
+Release Notes - IPDA Site - Version IPDA Site 1.1.7 - 2016-11-01
+
+** Task
+    * [IPDA-53] - Upgrade IPDA Registry Service to 1.11.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.1.6 - 2016-06-23
+
+** Task
+    * [IPDA-52] - Upgrade IPDA Registry Service to 1.10.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.1.5
+
+** Task
+    * [IPDA-51] - Upgrade IPDA Registry Service to 1.8.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.1.4 - 2015-04-01 - Just Kidding!
+
+** Bug
+    * [IPDA-50] - "New Service Binding" button no longer appears
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.1.3 - 2014-10-31 - Boo!
+
+** Task
+    * [IPDA-49] - Upgrade IPDA Registry Service to 1.7.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.9 - 2014-06-19
+
+** Task
+    * [IPDA-47] - Upgrade IPDA Registry Service to 1.5.0
+    * [IPDA-48] - Upgrade IPDA Registry Service to 1.6.1
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.8 - 2013-07-17
+
+** Bug
+    * [IPDA-45] - PloneFormGen security vulnerability
+
+** Task
+    * [IPDA-44] - IPDA Site buildout needs zc.buildout 2.0 compatibility
+    * [IPDA-46] - Upgrade Registry Service installation to the latest version
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.7 - 2013-05-22
+
+** Task
+    * [IPDA-43] - Install new SSL certificate for planetarydata.org
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.6 - 2012-11-15
+
+** Improvement
+    * [IPDA-41] - Update agency logos
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.5 - 2012-11-06
+
+** Improvement
+    * [IPDA-42] - Apply Plone Hotfix 20121106
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.4 - 2012-10-25
+
+** Bug
+    * [IPDA-39] - Rename action not functioning
+
+** Improvement
+    * [IPDA-38] - Make Tool Registry link more visible
+    * [IPDA-40] - Upgrade IPDA Registry Service to 1.3.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.3 - 2012-09-19
+
+** Bug
+    * [IPDA-37] - Bad link on the 7th IPDA meeting page
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.2 - 2012-09-11
+
+** Bug
+    * [IPDA-25] - Tomcat logs are in ${buildout:parts-directory}/parts/tomcat/logs, should be under ${buildout:directory}/var/log
+    * [IPDA-29] - The next link in the Registry Service response header is not resolvable
+    * [IPDA-30] - IPDA SSL Certificate is bad
+    * [IPDA-34] - HTTPS goes through cache, should be direct
+    * [IPDA-35] - Cannot reset password using emailed link
+
+** Improvement
+    * [IPDA-28] - Update the Registry Service home value to represent the service's external address
+    * [IPDA-33] - Add website version on "About" page
+    * [IPDA-36] - Mike Martin wants http://ipda.jpl.nasa.gov/ to go to http://planetarydata.org/
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.1 - 2012-07-20
+
+** Improvement
+    * [IPDA-31] - Add footer of the agency logos to the home page
+    * [IPDA-32] - The IPDA logo is overlapping with the blue banner
+
+
+Release Notes - IPDA Site - Version IPDA Site 1.0.0 - 2012-07-18
+
+Official Release into Operations at JPL.
+
+
+Release Notes - IPDA Site - Version IPDA Site 0.0.9
+
+** Bug
+    * [IPDA-24] - Work around PDS-82
+    * [IPDA-26] - IPDA site using pds.registry version 0.0.0
+
+** Improvement
+    * [IPDA-23] - Max upload size too small
+
+
+Release Notes - IPDA Site - Version IPDA Site 0.0.8
+
+** Bug
+    * [IPDA-19] - IPDA Site can't index Word documents
+    * [IPDA-21] - Varnish configuration broken on starlight.jpl.nasa.gov
+
+** Improvement
+    * [IPDA-22] - New splash image
+
+
+Release Notes - IPDA Site - Version IDPA Site 0.0.7
+
+** Bug
+    * [IPDA-20] - Protect IPDA Registry Service from external access
+
+
+Release Notes - IPDA Site - Version IPDA Site 0.0.6
+
+** Bug
+    * [IPDA-13] - Where's the search box?
+    * [IPDA-16] - Upcoming Events under Upcoming Events in the left hand panel
+
+** Improvement
+    * [IPDA-14] - Drop navigation portlet
+    * [IPDA-15] - The News Portlet is configured to show the last five news items. We can reconfigure it to show just 2 or 3.
+
+** Task
+    * [IPDA-17] - Upgrade IPDA Registry Service to 1.2.0
+
+
+Release Notes - IPDA Site - Version IPDA Site 0.0.5 - 2012-05-20
+
+** Bug
+    * [IPDA-2] - The IPDA logo isn't deployed
+    * [IPDA-3] - Broken icons on home page
+    * [IPDA-4] - IPDA TEG "borg.project" object remains after upgrade
+    * [IPDA-5] - CSS attribution missing
+    * [IPDA-6] - Buggy Events Portlet
+    * [IPDA-7] - Meetings Tab Listing wrong
+    * [IPDA-8] - Community workflow is not default
+    * [IPDA-11] - jQuery overlays not working?
+    * [IPDA-12] - "You can log in again" form is using http, not https. It should be disabled/redirected.
+
+** Improvement
+    * [IPDA-1] - Need TLS/SSL certificate for "planetarydata.org"
+    * [IPDA-9] - Create customized tabular views for every folder
+    * [IPDA-10] - Improve set of portlets
+
+
+

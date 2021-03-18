@@ -1,0 +1,100 @@
+Changelog
+=========
+
+For more information on issues referenced below ("IPDA-#"), see the issue
+tracker at https://oodt.jpl.nasa.gov/jira/browse/IPDA.
+
+2.1.8 — Setup
+-------------
+
+This release removes the direct dependency on ``distribute``.
+
+
+2.1.7 — Compatibility
+---------------------
+
+This release makes the package compatible with Plone 4.3.
+
+
+2.1.6 — Sprites
+---------------
+
+This release addresses the following:
+
+• IPDA-41 - Update agency logos
+
+In addition, it uses the "CSS Sprite" technique to substantially speed up
+display of the agency logos at the bottom of each page.
+
+
+2.1.5 — Popovers
+----------------
+
+This release resolves the following issue(s):
+
+• IPDA-39 - Rename action not functioning
+
+
+2.1.4 — Passwords and Metadata
+------------------------------
+
+This release resolves the following issues:
+
+• IPDA-33 - Add website version on "About" page
+• IPDA-35 - Cannot reset password using emailed link
+
+
+2.1.3 — Shifting
+----------------
+
+This release addresses the following:
+
+• IPDA-31 - Add footer of the agency logos to the home page
+• IPDA-32 - The IPDA logo is overlapping with the blue banner
+
+
+2.1.2 — Waldo
+-------------
+
+This release addresses the following issues:
+
+• IPDA-13 - Where's the search box?
+
+
+2.1.1 — Increased Snazziness
+----------------------------
+
+This release addresses the following issues:
+
+• IPDA-2 - The IPDA logo isn't deployed
+• IPDA-11 - jQuery overlays not working
+• IPDA-12 - "You can log in again" form is using http, not https.  It should
+  be disabled/redirected.
+ 
+
+2.1.0 — Blue
+------------
+
+The spacey theme of the past is out.  A simple, clean blue theme is in.  And
+now, we're powered by Diazo.
+
+
+2.0.1 — Workaround TinyMCE
+--------------------------
+
+This release works around some of the problems with TinyMCE.  Notably, the
+IPDA theme includes a background image on the html element so it can fill the
+entire page regardless of scrolling.  However, the inner html in the TinyMCE
+iframe picks that up as well, leaving an ugly navy blue block in your text
+editing area.  Secondly, Products.TinyMCE includes a link "Edit without visual
+editor" that's contained in a div with a hard-coded style block set to a -1em
+margin.  That makes the link land badly in our theme.  Sadly, there's no CSS
+classes or IDs we can use on that link (or its div) so we sneak some invisible
+content just above it to space it out.  (Ugly yes, but that should be fixed in
+Products.TinyMCE.)
+
+
+2.0.0 — Plone 4
+---------------
+
+This release of the IPDA Site Policy brings about Plone 4 compatibility.

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2011 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure xmlns='http://namespaces.zope.org/zope' i18n_domain='ipdasite.services'>
+    <subscriber
+        provides='Products.Archetypes.interfaces.IObjectPostValidation'
+        factory='.registryobject.LogicalIDUniquenessValidator'
+    />
+    <class class='.curator.Curator'>
+        <require permission='zope2.View' interface='..interfaces.ICurator'/>
+    </class>
+    <class class='.serviceregistry.ServiceRegistry'>
+        <require permission='zope2.View' interface='..interfaces.IServiceRegistry'/>
+    </class>
+    <class class='.service.Service'>
+        <require permission='zope2.View' interface='..interfaces.IService'/>
+    </class>
+    <class class='.servicebinding.ServiceBinding'>
+        <require permission='zope2.View' interface='..interfaces.IServiceBinding' />
+    </class>
+    <class class='.specificationlink.SpecificationLink'>
+        <require permission='zope2.View' interface='..interfaces.ISpecificationLink' />
+    </class>
+    <utility
+        component='.service.ServiceCategoryVocabulary'
+        name='ipdasite.services.ServiceCategories'
+    />
+    <utility
+        component='.service.OperatingSystemsVocabulary'
+        name='ipdasite.services.OperatingSystems'
+    />
+    <utility
+        component='.curator.CuratorsVocabulary'
+        name='ipdasite.services.Curators'
+    />
+    <utility
+        component='.service.InterfaceTypesVocabulary'
+        name='ipdasite.services.InterfaceTypes'
+    />
+    <subscriber
+        for='..interfaces.IServiceRegistry zope.container.interfaces.IContainerModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+    <subscriber
+        for='..interfaces.IServiceRegistry zope.lifecycleevent.interfaces.IObjectModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+    <subscriber
+        for='..interfaces.IService zope.lifecycleevent.interfaces.IObjectModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+    <subscriber
+        for='..interfaces.IServiceBinding zope.lifecycleevent.interfaces.IObjectModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+    <subscriber
+        for='..interfaces.ISpecificationLink zope.lifecycleevent.interfaces.IObjectModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+    <subscriber
+        for='..interfaces.ICurator zope.lifecycleevent.interfaces.IObjectModifiedEvent'
+        handler='.serviceregistry.syncServiceRegistry'
+    />
+</configure>
+

@@ -1,0 +1,28 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.services'>
+    <head>
+        <title>Curator</title>
+    </head>
+    <body>
+        <metal:content-core fill-slot='content-core'>
+            <div>
+                <label for='parent-fieldname-contactName' i18n:translate='label_contactName'>Contact Name:</label>
+                <metal:field use-macro='python:context.widget("contactName", mode="view")'>Joe Blow</metal:field>
+            </div>
+            <div>
+                <label for='parent-fieldname-emailAddress' i18n:translate='label_emailAddress'>Email Address:</label>
+                <metal:field use-macro='python:context.widget("emailAddress", mode="view")'>joe@blow.com</metal:field>
+            </div>
+            <div>
+                <label for='parent-fieldname-telephone' i18n:translate='label_telephone'>Telephone:</label>
+                <metal:field use-macro='python:context.widget("telephone", mode="view")'>+1 234 5678</metal:field>
+            </div>
+        </metal:content-core>
+    </body>
+</html>

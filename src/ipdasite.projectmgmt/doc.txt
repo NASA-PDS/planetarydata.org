@@ -1,0 +1,108 @@
+********************
+ipdasite.projectmgmt
+********************
+
+This package provides project management tools for the International Planetary
+Data Alliance (IPDA_).  These tools include:
+
+* IPDA Events, such as conferences or meetings
+* IPDA Documents, web pages with IPDA document identifiers
+* IPDA Files, uploaded files (like PDFs or Word documents) also with IPDA
+  documents identifiers
+* IPDA Projects, collaborative containers for documents and files pursued by
+  the IPDA.
+* Project Folders, containing IPDA Projects
+* Steering Committee, a special display of IPDA members for are part of the
+  IPDA Steering Committee
+
+Although intended for the web site of the IPDA, this package may be installed
+on any Plone_ 4 site.  It was developed by the Planetary Data System (PDS_).
+
+.. References:
+.. _IPDA: http://planetarydata.org/
+.. _Plone: http://plone.org/
+.. _PDS: http://pds.nasa.gov/
+
+
+
+Installation
+============
+
+Use Buildout_ with the plone.recipe.zope2instance recipe.
+
+* Add ``ipdasite.projectmgmt`` to the list of eggs to install, e.g.::
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        ipdasite.projectmgmt
+        
+* Tell the plone.recipe.zope2instance recipe to install a ZCML slug::
+
+    [instance]
+    recipe = plone.recipe.zope2instance
+    ...
+    zcml =
+        ipdasite.projectmgmt
+        
+* Re-run buildout, e.g. with::
+  
+    $ ./bin/buildout
+        
+You can skip the ZCML slug if you are going to explicitly include the package
+from another package's configure.zcml file.
+
+.. References:
+.. _Buildout: http://www.buildout.org/
+
+
+Changelog
+=========
+
+2.0.3 — Hm, Upgrades
+--------------------
+
+This release makes the package compatible with Plone 4.3.
+
+
+2.0.2 — Uneventful
+------------------
+
+• IPDA-16 - Upcoming Events under Upcoming Events in the left hand panel
+
+
+2.0.1 - The Experts are Technical - 2011-1-25
+---------------------------------------------
+
+Dan.Crichton@jpl.nasa.gov wants the members of the Technical Experts Group to
+appear under the "Members" tab.  Well, the "Members" tab was already a
+misnomer, as it was an instance of a "Steering Committee Display" object whose
+sole purpose was to show those registered users who were in the group "SC".
+Well, now that object's view also has a section for "TEG" members.
+
+
+2.0.0 - Plone 4
+---------------
+
+This release of the IPDA Project Management brings about Plone 4
+compatibility.
+
+
+
+Copyright & License
+===================
+
+Copyright 2008-2011 by the California Institute of Technology.  ALL RIGHTS
+RESERVED.
+
+The Software is owned by Caltech/JPL and is protected by United States
+copyright laws and applicable international treaties and/or conventions.  The
+United States Government may have prior rights to use some or all of the
+Software as determined under applicable contracts and license agreements with
+Caltech/JPL.
+
+This software was developed at the Jet Propulsion Laboratory, an operating
+division of the California Institute of Technology and is not available for
+use by any person, organization, or other entity without prior, specific
+written permission.

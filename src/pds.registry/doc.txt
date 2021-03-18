@@ -1,0 +1,143 @@
+************
+pds.registry
+************
+
+This is an implementation of the ebXML_ Registry information model and client
+software, implemented for the NASA_ Planetary Data System (PDS_).
+
+The PDS Registry_ provides tracking, auditing, locating, and maintaining
+artifacts within PDS.  These artifacts can range from data files and label
+files, schemas, dictionary definitions for objects and elements, services,
+etc.
+
+It was developed by the PDS Engineering Node (EN_), operated by JPL_.  See the
+package's ``docs`` directory for more information, including installation
+instructions, license, and history of changes.
+
+
+.. References:
+.. _ebXML: http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=regrep
+.. _NASA: http://www.nasa.gov/
+.. _PDS: http://pds.nasa.gov/
+.. _Registry: http://pdscm.jpl.nasa.gov/2010/registry/
+.. _EN: http://pds-engnode.jpl.nasa.gov/
+.. _JPL: http://www.jpl.nasa.gov/
+
+.. Author:
+    Sean Kelly
+    Jet Propulsion Laboratory
+    California Institute of Technology
+
+.. Copyright:
+    Copyright 2011-2013 California Institute of Technology. ALL RIGHTS
+    RESERVED.  U.S. Government sponsorship acknowledged.
+
+
+Requirements
+============
+
+Python 2.6 or 2.7.  It is *not* compatible with Python 2.5 or earlier
+versions, nor with Python 3 or later versions.
+
+
+Installation
+============
+
+By far, the easiest way to install pds.registry is to use pip_ or
+easy_install_.  As a privileged user, type::
+
+    pip install pds.registry
+
+or::
+
+    easy_install pds.registry
+
+The software as well as its dependencies will be downloaded and installed
+automatically.  Of course, you can use it in virtualenvs_ and buildouts_ too.
+
+
+Installing from Source
+----------------------
+
+If neither pip nor easy_install are available on your system, just install
+from source:
+
+1.  Download the source package archive.
+2.  Extract the gzip'd tar archive.
+3.  In the extracted directory, run ``python setup.py install`` as a
+    privileged user.
+
+
+.. References:
+.. _pip: http://pip.openplans.org/
+.. _easy_install: http://peak.telecommunity.com/DevCenter/EasyInstall
+.. _virtualenvs: http://pypi.python.org/pypi/virtualenv/
+.. _buildouts: http://www.buildout.org/
+
+
+Changelog
+=========
+
+What follows is a history of changes from release to release, along with
+issues addressed and new features in each release.
+
+1.8.1 - Associations
+--------------------
+
+* Added API to retrieve associations (PDS-342).
+
+
+1.5.0 - Extrinsics
+------------------
+
+* Remove workaround for registry service emitting HTTP 500 for "not found"
+  instead of 404.  (PDS-29)
+* Add implementation for ExtrinsicObject in model and in net
+* Replaced old "A and B or C" expressions with safer "B if A else C"
+  expressions
+
+
+1.2.0 - Version Updates
+-----------------------
+
+This release makes the client API compatible with the 1.2 release of the PDS
+registry service.  In particular, it fixes the integration of the
+Maven-provided project information with Python's Distribute-supplied project
+metadata.
+
+
+1.0.0 - Released
+----------------
+
+This release includes the following changes from the original 
+unreleased release:
+
+* The client now works with 1.0.0 of the Registry Service.
+* Support for the ``versionID`` attribute in the RegistryObject class is
+  dropped as the Registry Service no longer makes that a "user-visible"
+  attribute.
+
+Issue Tracker
+-------------
+
+Visit https://oodt.jpl.nasa.gov/jira/browse/PDSEN to find the issue tracker.
+
+
+.. References:
+.. _FCS: http://en.wikipedia.org/wiki/Development_stage#General_availability
+
+
+Copyright and License
+=====================
+
+Copyright 2011-2016, by the California Institute of Technology.  ALL RIGHTS
+RESERVED.  United States Government Sponsorship acknowledged.  Any commercial
+use must be negotiated with the Office of Technology Transfer at the
+California Institute of Technology.
+
+This software is subject to U.S. export control laws and regulations (22
+C.F.R. 120-130 and 15 C.F.R. 730-774).  To the extent that the software is
+subject to U.S.  export control laws and regulations, the recipient has the
+responsibility to obtain export licenses or other export authority as may be
+required before exporting such information to foreign countries or providing
+access to foreign nationals.

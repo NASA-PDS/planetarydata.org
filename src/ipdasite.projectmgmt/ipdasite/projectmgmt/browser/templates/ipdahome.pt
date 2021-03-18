@@ -1,0 +1,78 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.projectmgmt'>
+    <head>
+        <title>ipdahome</title>
+    </head>
+    <body>
+        <metal:main fill-slot='main'>
+            <tal:main-macro metal:define-macro='main'
+                tal:define='kssClassesView context/@@kss_field_decorator_view;
+                    getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                    templateId template/getId;
+                    text context/getText;
+                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                    isAnon context/@@plone_portal_state/anonymous;
+                    events view/getNextEvents|nothing;'>
+                <div tal:replace='structure provider:plone.abovecontenttitle' />
+
+                <div id='ipdaHome'>
+                    <h1 class='documentFirstHeading'> 
+                        <metal:field use-macro='python:context.widget("title", mode="view")'>
+                            Title
+                        </metal:field>
+                    </h1>
+                    <div tal:replace='structure provider:plone.belowcontenttitle' />
+                    <div tal:replace='structure provider:plone.abovecontentbody' />
+                    <p tal:condition='python:not text and is_editable' i18n:translate='no_body_text' class='discreet'>
+                        This item does not have any body text, click the edit tab to change it.
+                    </p>
+                    <metal:field use-macro='python:context.widget("text", mode="view")'>
+                        Body text
+                    </metal:field>
+        			<div tal:condition='events' class='upcomingEvents'>
+        				<h2>Upcoming Events</h2>
+        				<div tal:repeat='event events' class='upcomingEvent'>
+        					<tal:define define='title event/pretty_title_or_id;
+        						eventURL event/getURL;
+        						descr event/Description|nothing;
+        						start event/start|nothing;
+        						end event/end|nothing;
+        						obj event/getObject;
+        						location obj/getLocation|nothing;
+        						eventImage obj/image_mini|nothing;
+        						eventCaption obj/getImageCaption|nothing;'>
+        						<div tal:condition='eventImage'>
+        							<a href='#' tal:attributes='href eventURL; title eventCaption|descr'>
+        								<img src='#' alt='Caption' border='0'
+        									tal:replace='structure python:obj.tag(scale="mini", css_class="newsImage")'/>
+        							</a>
+        							<br/>
+        						</div>
+        						<a href='#' title='Event Descr' tal:attributes='href eventURL; title descr;'>
+        							<span class='upcomingEventTitle' tal:content='title'>Event Title</span><br/>
+        						</a>
+        						<span class='upcomingEventDates' tal:condition='python:start'>
+        							Starts: <span tal:replace='python:toLocalizedTime(start)'>2007-01-06</span><br/>
+        							<span tal:condition='end' tal:omit-tag=''>Ends:
+        								<span tal:replace='python:toLocalizedTime(end)'>2007-01-15</span>
+        								<br/>
+        							</span>
+        						</span>
+        						<span class='upcomingEventPlace' tal:condition='location' tal:content='location'>Where</span>
+        					</tal:define>
+        				</div>
+        			</div>
+                    
+                </div>
+                
+                <div tal:replace='structure provider:plone.belowcontentbody' />
+            </tal:main-macro>
+        </metal:main>
+    </body>
+</html>

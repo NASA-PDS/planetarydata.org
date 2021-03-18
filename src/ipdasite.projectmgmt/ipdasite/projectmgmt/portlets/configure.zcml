@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2009 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure xmlns='http://namespaces.zope.org/zope' xmlns:plone='http://namespaces.plone.org/plone'
+    i18n_domain='ipdasite.projectmgmt'>
+    <include package='plone.app.portlets' />
+    <plone:portlet
+        name='ipdasite.projectmgmt.portlets.Events'
+        interface='.events.IEventsPortlet'
+        assignment='.events.Assignment'
+        renderer='.events.Renderer'
+        addview='.events.AddForm'
+        editview='.events.EditForm'
+    />
+</configure>

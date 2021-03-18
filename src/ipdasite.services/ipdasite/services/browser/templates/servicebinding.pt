@@ -1,0 +1,88 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.services'>
+    <head>
+        <title>Service Binding</title>
+    </head>
+    <body>
+        <metal:css fill-slot='style_slot'>
+            <style type='text/css' media='all'
+                tal:content="string:@import url(${context/++resource++ipdasite-services.css});"></style>
+        </metal:css>
+        <metal:content-core fill-slot='content-core'
+            tal:define='haveSpecifications view/haveSpecifications'>
+
+            <table class='ipdasiteServicesAttributeTable'>
+                <colgroup>
+                    <col class='ipdasiteServicesAttributeTableHeadings'/>
+                    <col class='ipdasiteServicesAttributeTableValues'/>
+                </colgroup>
+                <tbody>
+                    <tr tal:define='accessURI context/accessURI'>
+                        <th i18n:translate='ipdasiteServicesTableHeadingAccessURI'>Access URI:</th>
+                        <td><a href='#' tal:attributes='href accessURI' tal:content='accessURI'>http://x.com/service</a></td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingVersionID'>Version ID:</th>
+                        <td tal:content='context/versionID'>1.2.3</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingLID'>Logical Identifier:</th>
+                        <td tal:content='context/lid'>urn:whatever:blah</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingGUID'>GUID:</th>
+                        <td tal:content='context/guid'>urn:uuid:0f0734bc-a281-4801-92db-b2c6760997eb</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 i18n:translate='ipdasiteServicesHeadingSpecLinks'>Specification Links</h2>
+
+            <p class='discreet' i18n:translate='ipdasiteServicesNoSpecifications' tal:condition='not:haveSpecifications'>
+                There are currently no specification links defined for this service.
+            </p>
+
+            <table class='listing' tal:condition='haveSpecifications'>
+                <thead>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesSpecsTableColHeadingName'>Name</th>
+                        <th i18n:translate='ipdasiteServicesSpecsTableColHeadingVersion'>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:row repeat='specification view/specifications'>
+                        <tr class='odd' tal:define='oddrow repeat/specification/odd'
+                            tal:attributes='class python:oddrow and "odd" or "even"'>
+                            <td>
+                                <a href='#' tal:content='specification/title' tal:attributes='href specification/url'>
+                                    My Spec Link
+                                </a>
+                                <br/>
+                                <span class='discreet' tal:content='specification/description'>
+                                    It's some kind of link to a specification
+                                </span>
+                            </td>
+                            <td tal:content='specification/versionID'>
+                                3.2.1
+                            </td>
+                        </tr>
+                    </tal:row>
+                </tbody>
+            </table>
+            
+            <div tal:condition='view/showAddSpecificationButton'>
+                <a class='ipdasiteServicesAddButton' href='#' tal:attributes='href view/addSpecificationURL'
+                    title='Creates a new specification link for this binding'
+                    i18n:attributes='title' i18n:translate='ipdasiteServicesNewSpecification'>
+                    New Specification Link
+                </a>
+            </div>
+        </metal:content-core>
+    </body>
+</html>

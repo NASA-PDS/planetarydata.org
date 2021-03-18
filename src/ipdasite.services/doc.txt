@@ -1,0 +1,202 @@
+*****************
+ipdasite.services
+*****************
+
+This package provides a service registry for the International Planetary Data
+Alliance (IPDA_).  It allows the general public to view service descriptions
+registered with the IPDA service registry.  It also enables users who have
+permissions to register new services and update existing services.
+
+This registry implementation is targeted for compatibility with the service
+registry deployed for the Planetary Data System (PDS_), which itself is based
+on the ebXML_ notion of a registry (as specified by the `registry information
+model`_).
+
+Although intended for the IPDA web site, it can be deployed to any Plone_
+based site (and is tested with Plone 4).
+
+
+.. References:
+.. _ebXML: http://www.ebxml.org/
+.. _IPDA: http://planetarydata.org/
+.. _PDS: http://pds.nasa.gov/
+.. _Plone: http://plone.org/
+.. _`registry information model`: http://www.oasis-open.org/committees/regrep/documents/2.0/specs/ebrim.pdf
+
+
+Installation
+============
+
+Use Buildout_ with the plone.recipe.zope2instance recipe.
+
+* Add ``ipdasite.services`` to the list of eggs to install, e.g.::
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        ipdasite.services
+        
+* Tell the plone.recipe.zope2instance recipe to install a ZCML slug::
+
+    [instance]
+    recipe = plone.recipe.zope2instance
+    ...
+    zcml =
+        ipdasite.services
+        
+* Re-run buildout, e.g. with::
+  
+    $ ./bin/buildout
+        
+You can skip the ZCML slug if you are going to explicitly include the package
+from another package's configure.zcml file, which you almost certainly are for
+this package, since ``ipdasite.policy`` includes it as a dependency.
+
+.. References:
+.. _Buildout: http://www.buildout.org/
+
+
+Changelog
+=========
+
+What follows is a history of changes from release to release, along with
+issues addressed and new features in each release.
+
+
+1.0.10 — Submit-A-Binding-Button
+--------------------------------
+
+Fixes https://oodt.jpl.nasa.gov/jira/browse/IPDA-50
+
+
+1.0.9 — Submit-A-Tool-Button
+----------------------------
+
+This release adds a tool submission button to Service Registry view templates.
+It also fixes the CSS for button styling on all the templates.
+
+
+1.0.8 — Hmm, More Upgrades
+--------------------------
+
+This release simplifies the page templates for the various types.  It also
+makes it compatible with Plone 4.3.
+
+
+1.0.7 — Hmm, Upgrades
+---------------------
+
+This release makes the unit, functional, and integration tests use the
+standard plone.app.testing layers and fixtures.  It also makes this release
+compatible with Plone 4-latest (4.2.1 as of this writing).
+
+
+1.0.6 — 1.2 Compatibility
+-------------------------
+
+Now compatible with PDS Registry Client 1.2.
+
+
+1.0.5 — 4.1 Compatibility
+-------------------------
+
+Now compatible with Plone 4.1.
+
+
+1.0.4 — Tools, Not Services
+---------------------------
+
+Wedging all the tools that IPDA registered into the ebXML Service Registry
+model just confused users.  So, we keep the model, but downplay the "service"
+aspect of it and instead call things "Tools".  Services have tool URLs now.
+
+
+1.0.3 — That Is Not Logical
+---------------------------
+
+This release makes sure that logical IDs (or "lids") throughout the system are
+kept unique.  This should help prevent a certain PDS engineer from re-using
+the same lid "TBD" over and over, which is incompatible with the PDS Service
+Registry.
+
+Speaking of, this release also writes all of its data to a PDS Registry
+Service.  Just set the "home" attribute of a Registry instance to the endpoint
+URL of a PDS Service Registry and all of the service registrations
+will be synchronized into the PDS Registry Service.
+
+Note that this is *not* two-way synchronization.  Information pre-existing in
+a PDS Registry Service will be wiped out by this package: services with the
+same GUIDs will be overwritten in the PDS Registry Service, and any other
+Services will be purged.  This package therefore uses a PDS Registry Services
+solely as redundant backing store.
+
+
+1.0.2 — More Fine Tuning
+------------------------
+
+This release adds the slot "interface type" to Services.  It also adds three
+new categories (analysis, dissemination, and visualization).
+
+
+1.0.1 — Slot Car Racing
+-----------------------
+
+This release implements additional ebXML-styled slots needed for the IPDA
+release of the service registry, including:
+
+* interface type (using a controlled vocabulary)
+* description (but calling it "abstract" to avoid confusion with the Dublin
+  Core "description")
+* operating system (also using a controlled vocabulary)
+* requirements
+* curating source (institution, contact name, email address, telephone number)
+
+
+1.0.0 — Initial Implementation
+------------------------------
+
+This is an initial release so PDS can try it out.
+
+
+0.0.0 — Unreleased
+------------------
+
+There are no releases yet of ipdasite.services.
+
+
+Issue Tracker
+-------------
+
+Visit https://oodt.jpl.nasa.gov/jira/browse/PDSEN to find the issue tracker.
+
+
+.. References:
+.. _FCS: http://en.wikipedia.org/wiki/Development_stage#General_availability
+
+
+Copyright and License
+=====================
+
+Copyright 2011 by the California Institute of Technology.  ALL RIGHTS
+RESERVED.
+
+The Software is owned by Caltech/JPL and is protected by United States
+copyright laws and applicable international treaties and/or conventions.  The
+United States Government may have prior rights to use some or all of the
+Software as determined under applicable contracts and license agreements with
+Caltech/JPL.
+
+This software was developed at the Jet Propulsion Laboratory, an operating
+division of the California Institute of Technology and is not available for
+use by any person, organization, or other entity without prior, specific
+written permission.
+
+.. Author:
+    Sean Kelly
+    Jet Propulsion Laboratory
+    California Institute of Technology
+
+.. Copyright:
+    Copyright 2011 California Institute of Technology. ALL RIGHTS RESERVED.
+    U.S. Government sponsorship acknowledged.

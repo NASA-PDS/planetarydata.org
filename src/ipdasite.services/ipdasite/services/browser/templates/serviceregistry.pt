@@ -1,0 +1,92 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.services'>
+    <head>
+        <title>Service Registry</title>
+    </head>
+    <body>
+        <metal:css fill-slot='style_slot'>
+            <style type='text/css' media='all'
+                tal:content="string:@import url(${context/++resource++ipdasite-services.css});"></style>
+        </metal:css>
+        <metal:content-core fill-slot='content-core'
+            tal:define='haveServices view/haveServices; haveCurators view/haveCurators;'>
+
+           <div tal:condition='not:view/showAddServiceButton' class='ipdaControls'>
+                <a class='ipdasiteServicesAddButton' href='#' tal:attributes='href view/submitServiceURL'
+                    title='Submit a tool or service for consideration of inclusion into the registry.'
+                    i18n:attributes='title' i18n:translate='ipdasite_services_submitService'>
+                    Submit a Tool
+                </a>
+            </div>
+
+
+            <h2 i18n:translate='ipdasiteServicesHeadingServices'>Services</h2>
+
+            <p tal:condition='not:haveServices' class='discreet' i18n:translate='serviceregistry_noServices'>
+                There are currently no services registered in this registry.
+            </p>
+            
+            <table class='listing' tal:condition='haveServices'>
+                <thead>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingName'>Name</th>
+                        <th i18n:translate='ipdasiteServicesTableHeadingVersionID'>Version ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:row repeat='service view/services'>
+                        <tr class='odd' tal:define='oddrow repeat/service/odd'
+                            tal:attributes='class python:oddrow and "odd" or "even"'>
+                            <td>
+                                <a href='#' tal:content='service/title' tal:attributes='href service/url'>
+                                    My Service
+                                </a>
+                                <br/>
+                                <span class='discreet' tal:content='service/description'>
+                                    It's a very fancy service, yes it is.
+                                </span>
+                            </td>
+                            <td tal:content='service/versionID'>
+                                3.2.1
+                            </td>
+                        </tr>
+                    </tal:row>
+                </tbody>
+            </table>
+            <div tal:condition='view/showAddServiceButton' class='ipdaControls'>
+                <a class='ipdasiteServicesAddButton' href='#' tal:attributes='href view/addServiceURL'
+                    title='Creates a new service or tool in this registry'
+                    i18n:attributes='title' i18n:translate='ipdasite_services_newService'>
+                    New Tool
+                </a>
+            </div>
+
+            <h2 i18n:translate='ipdasiteServicesHeadingCurators'>Curators</h2>
+            <p tal:condition='not:haveCurators' class='discreet' i18n:translate='ipdasiteServicesAdmonishmentNoCurators'>
+                There are currently no curators listed in this registry.
+            </p>
+            <ul tal:condition='haveCurators'>
+                <li tal:repeat='curator view/curators'>
+                    <a href='#' title="Joe the curator; he's OK." tal:attributes='href curator/url; title curator/description'
+                        tal:content='curator/title'>
+                        Joe Curator
+                    </a>
+                </li>
+            </ul>
+            <div tal:condition='view/showAddCuratorButton' class='ipdaControls'>
+                <a class='ipdasiteServicesAddButton' href='#' tal:attributes='href view/addCuratorURL'
+                    title='Creates a new curator'
+                    i18n:attributes='title' i18n:translate='ipdasite_services_newCurator'>
+                    New Curator
+                </a>
+            </div>
+
+        </metal:content-core>
+    </body>
+</html>

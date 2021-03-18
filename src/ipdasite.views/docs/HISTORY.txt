@@ -1,0 +1,35 @@
+Changelog
+=========
+
+For more information on issues referenced below ("IPDA-#"), see the issue
+tracker at https://oodt.jpl.nasa.gov/jira/browse/IPDA.
+
+1.0.2 — Dexterity Relations
+---------------------------
+
+Plone 4.3 removes a lot of the automatic add-ons so we have to be explicit
+about what to include.  We explicitly need plone.app.dexterity with its
+``relations`` extra.
+
+
+1.0.1 — Hmm, upgrades
+---------------------
+
+Made compatible with Plone 4-latest.
+
+
+1.0.0 — Initial Release
+-----------------------
+
+This release addresses the following issue:
+
+• IPDA-9 - Create customized tabular views for every folder
+
+
+0.0.0 — Happy Birthday
+----------------------
+
+This is the first release of ipdasite.views.
+
+
+

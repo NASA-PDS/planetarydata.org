@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+<metal:main fill-slot="content-slot">
+        <div>
+            <label for='parent-fieldname-documentID' i18n:translate='label_documentID'>IPDA Document ID</label>
+            <metal:field use-macro='python:context.widget("documentID", mode="view")'>
+                IPDA-XYZ-TN-592_3_7_2009JAN22-STUPID
+            </metal:field>
+        </div>
+
+        <metal:field use-macro="python:here.widget('text', mode='view')">
+        Body text
+        </metal:field>
+
+</metal:main>
+
+</body>
+</html>
+

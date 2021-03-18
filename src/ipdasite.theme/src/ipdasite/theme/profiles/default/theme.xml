@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2012 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<theme>
+    <name>ipdasite.theme</name>
+    <enabled>true</enabled>
+</theme>

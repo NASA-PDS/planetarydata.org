@@ -1,0 +1,142 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.services'>
+    <head>
+        <title>Service</title>
+    </head>
+    <body>
+        <metal:css fill-slot='style_slot'>
+            <style type='text/css' media='all'
+                tal:content="string:@import url(${context/++resource++ipdasite-services.css});"></style>
+        </metal:css>
+        <metal:content-core fill-slot='content-core'
+            tal:define='
+                abstract        context/abstract|nothing;
+                requirements    context/requirements|nothing;
+                is_editable     context/@@plone_context_state/is_editable;
+            '>
+            <table class='ipdasiteServicesAttributeTable'>
+                <colgroup>
+                    <col class='ipdasiteServicesAttributeTableHeadings'/>
+                    <col class='ipdasiteServicesAttributeTableValues'/>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingToolURL'>Tool URL:</th>
+                        <td tal:define='toolURL context/toolURL|nothing'>
+                            <a href='#' tal:condition='toolURL' tal:attributes='href toolURL' tal:content='toolURL'>
+                                http://tools.net/tools/not/services
+                            </a>
+                            <span tal:condition='not:toolURL' i18n:translate='ipdasiteServicesTableToolURLNotSet'>
+                                Not set
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingReleaseDate'>Release Date:</th>
+                        <td>
+                            <span tal:replace='context/releaseDate|nothing'>2010-01-01</span>
+                            <span tal:condition='not:context/releaseDate|nothing' class='discreet'
+                                i18n:translate='ipdasiteServicesTableHeadingNotSet'>
+                                Not set
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingCategories'>Categories:</th>
+                        <td>
+                            <metal:field use-macro='python:context.widget("categories", mode="view")'>Planning</metal:field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingInterfaceTypes'>Interface Types:</th>
+                        <td>
+                            <metal:field use-macro='python:context.widget("interfaceTypes", mode="view")'>GUI</metal:field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingOperatingSystems'>Operating Systems:</th>
+                        
+                        <td>
+                            <metal:field use-macro='python:context.widget("operatingSystems", mode="view")'>
+                                Mac OS X
+                            </metal:field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingCurator'>Curator:</th>
+                        <td>
+                            <metal:field use-macro='python:context.widget("curator", mode="view")'>Joe Curator</metal:field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingVersionID'>Version ID:</th>
+                        <td tal:content='context/versionID'>1.2.3</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingLID'>Logical Identifier:</th>
+                        <td tal:content='context/lid'>urn:whatever:blah</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingGUID'>GUID:</th>
+                        <td tal:content='context/guid'>urn:uuid:0f0734bc-a281-4801-92db-b2c6760997eb</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 i18n:translate='ipdasiteServicesBindingsHeadingAbstract'>Abstract</h2>
+            <p class='discreet' tal:condition='python:not abstract and not is_editable'
+                i18n:translate='ipdasiteServicesBindingsHeadingNoAbstract'>
+                This service doesn't have an abstract.
+            </p>
+            <p class='discreet' tal:condition='python:not abstract and is_editable'
+                i18n:translate='ipdasiteServicesBindingsHeadingNoAbstractButYouCanAddOne'>
+                This service doesn't have an abstract; click the edit tab to enter an abstract.
+            </p>
+            <div tal:condition='abstract' metal:use-macro='python:context.widget("abstract", mode="view")'>
+    		    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    		    sed do eiusmod tempor incididunt ut labore et dolore magna
+    		    aliqua.  Ut enim ad minim veniam, quis nostrud
+    		    exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    		    consequat.  Duis aute irure dolor in reprehenderit in
+    		    voluptate velit esse cillum dolore eu fugiat nulla
+    		    pariatur.  Excepteur sint occaecat cupidatat non proident,
+    		    sunt in culpa qui officia deserunt mollit anim id est
+    		    laborum.
+            </div>
+
+            <h2 i18n:translate='ipdasiteServicesBindingsHeadingRequirements'>Requirements</h2>
+            <p class='discreet' tal:condition='python:not requirements and not is_editable'
+                i18n:translate='ipdasiteServicesBindingsHeadingNoRequirements'>
+                This service doesn't have any requirements.
+            </p>
+            <p class='discreet' tal:condition='python:not requirements and is_editable'
+                i18n:translate='ipdasiteServicesBindingsHeadingNoRequirementsButYouCanAddSome'>
+                This service doesn't have any requirements; click the edit tab to enter some.
+            </p>
+            <div tal:condition='requirements' metal:use-macro='python:context.widget("requirements", mode="view")'>
+    		    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    		    sed do eiusmod tempor incididunt ut labore et dolore magna
+    		    aliqua.  Ut enim ad minim veniam, quis nostrud
+    		    exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    		    consequat.  Duis aute irure dolor in reprehenderit in
+    		    voluptate velit esse cillum dolore eu fugiat nulla
+    		    pariatur.  Excepteur sint occaecat cupidatat non proident,
+    		    sunt in culpa qui officia deserunt mollit anim id est
+    		    laborum.
+            </div>
+            <div tal:condition='view/showAddBindingButton'>
+                <a class='ipdasiteServicesAddButton' href='#' tal:attributes='href view/addBindingURL'
+                    title='Creates a new binding for this service'
+                    i18n:attributes='title' i18n:translate='ipdasiteServicesNewBinding'>
+                    New Service Binding
+                </a>
+            </div>
+        </metal:content-core>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2008 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<rolemap>
+    <permissions>
+        <permission name='IPDA Proj Mgmt: Add IPDA Home' acquire='False'>
+            <role name='Manager' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add Steering Committee Display' acquire='False'>
+            <role name='Manager' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add IPDA Event' acquire='True'>
+            <role name='Manager' />
+            <role name='Owner' />
+            <role name='Contributor' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add Project Folder' acquire='True'>
+            <role name='Manager' />
+            <role name='Owner' />
+            <role name='Contributor' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add IPDA Project' acquire='True'>
+            <role name='Manager' />
+            <role name='Owner' />
+            <role name='Contributor' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add IPDA Document' acquire='True'>
+            <role name='Manager' />
+            <role name='Owner' />
+            <role name='Contributor' />
+        </permission>
+        <permission name='IPDA Proj Mgmt: Add IPDA File' acquire='True'>
+            <role name='Manager' />
+            <role name='Owner' />
+            <role name='Contributor' />
+        </permission>
+    </permissions>
+</rolemap>

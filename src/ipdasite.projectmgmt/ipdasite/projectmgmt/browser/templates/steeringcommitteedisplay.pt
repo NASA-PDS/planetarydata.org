@@ -1,0 +1,87 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.projectmgmt'>
+    <head>
+        <title>steeringcommitteedisplay</title>
+    </head>
+    <body>
+        <metal:main fill-slot='main'>
+            <tal:main-macro metal:define-macro='main' tal:define='members view/scMembers; tegMembers view/tegMembers;'>
+                <div tal:replace='structure provider:plone.abovecontenttitle' />
+                <h1 class='documentFirstHeading'> 
+                    <metal:field use-macro='python:context.widget("title", mode="view")'>
+                        Title
+                    </metal:field>
+                </h1>
+                <div tal:replace='structure provider:plone.belowcontenttitle' />
+                <p class='documentDescription'>
+                    <metal:field use-macro='python:context.widget("description", mode="view")'>Description.</metal:field>
+                </p>
+                <div tal:replace='structure provider:plone.abovecontentbody' />
+
+                <table class='scMembers' tal:condition='members'>
+                    <thead><tr><th i18n:translate='scd_member'>Member</th><th i18n:translate='scd_inst'>Institution</th></tr></thead>
+                    <tbody>
+                        <tal:repeat repeat='member members'>
+                            <tr tal:define='oddRow repeat/member/odd; rowClass python:oddRow and "odd" or "even";' 
+                                tal:attributes='class rowClass'>
+                                <td>
+                                    <a href='#' tal:attributes='href member/url' tal:content='member/name'>Maria</a>
+                                </td>
+                                <td>
+                                    <span tal:condition='member/institution' tal:replace='member/institution'>SPZ</span>
+                                    <span tal:condition='not:member/institution' class='discreet' i18n:translate='scd_noInst'>
+                                        (User has not set his/her institution.)
+                                    </span>
+                                </td>
+                            </tr>
+                        </tal:repeat>
+                    </tbody>
+                </table>
+                <p tal:condition='not:members' i18n:translate='scd_noMembers'>
+                    The Steering Committee currently has no members.
+                </p>
+
+                <div tal:condition='tegMembers'>
+                    <h2 i18n:translate='tegHeading'>Technical Experts Group</h2>
+                    <table class='scMembers'>
+                        <thead>
+                            <tr>
+                                <th i18n:translate='scd_member'>Member</th>
+                                <th i18n:translate='scd_inst'>Institution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tal:repeat repeat='member tegMembers'>
+                                <tr tal:define='oddRow repeat/member/odd; rowClass python:oddRow and "odd" or "even";'
+                                    tal:attributes='class rowClass'>
+                                    <td>
+                                        <a href='#' tal:attributes='href member/url' tal:content='member/name'>Dan</a>
+                                    </td>
+                                    <td>
+                                        <span tal:condition='member/institution' tal:replace='member/institution'>JPL</span>
+                                        <span tal:condition='not:member/institution' class='discreet' i18n:translate='scd_noInst'>
+                                            (User has not set his/her institution.)
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tal:repeat>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class='discreet' tal:condition='not:view/anonymous' i18n:translate='scd_setYourInst'>
+                    If you would like to set your institution name, please visit your
+                    <a href='#' i18n:name='scd_prefPage' tal:attributes='href view/prefPage'>personal preferences</a> page.
+                </p>
+                    
+                <div tal:replace='structure provider:plone.belowcontentbody' />
+            </tal:main-macro>
+        </metal:main>
+    </body>
+</html>

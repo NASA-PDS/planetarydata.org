@@ -1,0 +1,71 @@
+Changelog
+=========
+
+For more information on issues referenced below ("IPDA-#"), see the issue
+tracker at https://oodt.jpl.nasa.gov/jira/browse/IPDA.
+
+
+2.1.6 — Dropped the Event
+-------------------------
+
+• IPDA-37 - Bad link on the 7th IPDA meeting page
+
+
+2.1.5 — Hmm, Upgrades
+---------------------
+
+• Compatible with Plone 4-latest (4.2.1 as of this writing)
+
+
+2.1.4 — Resistance *was* Futile
+-------------------------------
+
+• Removed dependency on borg.project.
+
+
+2.1.3 — Splashy
+---------------
+
+• IPDA-22 - New splash image
+
+
+2.1.2 — Portlet Madness
+-----------------------
+
+This release addresses the following:
+
+• IPDA-14 - Drop navigation portlet
+• IPDA-15 - The News Portlet is configured to show the last five news items.
+  We can reconfigure it to show just 2 or 3.
+• IPDA-16 - Upcoming Events under Upcoming Events in the left hand panel.
+
+
+2.1.1 — Buffing Out The Rough Edges
+-----------------------------------
+
+This release addresses the following:
+
+• IPDA-3 - Broken icons on home page
+• IPDA-5 - CSS attribution missing
+• IPAD-4 - IPDA TEG "borg.project" object remains after upgrade
+• IPDA-8 - Community workflow is not default
+• IPDA-9 - Create customized tabular views for every folder
+
+
+2.1.0 — Rehosting
+-----------------
+
+This release prepares ``ipdasite.policy`` for its new look, feel, and home at
+JPL.
+
+
+2.0.1 — Service Registry
+------------------------
+
+This release adds the IPDA Service Registry ``ipdasite.services``.
+
+
+2.0.0 — Plone 4
+---------------
+
+This release of the IPDA Site Policy brings about Plone 4 compatibility.

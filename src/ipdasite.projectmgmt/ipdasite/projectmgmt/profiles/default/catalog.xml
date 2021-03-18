@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2008 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<object name='portal_catalog' meta_type='Plone Catalog Tool'>
+    <index name='chairPerson' meta_type='FieldIndex'>
+        <indexed_attr value='chairPerson' />
+    </index>
+    <index name='documentID' meta_type='FieldIndex'>
+        <indexed_attr value='documentID' />
+    </index>
+    <index name='active' meta_type='FieldIndex'>
+        <indexed_attr value='active' />
+    </index>
+    <column value='documentID' />
+    <column value='chairPerson' />
+    <column value='active' />
+</object>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2009 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<portlets>
+    <portlet
+        addview='ipdasite.projectmgmt.portlets.Events'
+        title='IPDA Events'
+        description='A portlet which shows upcoming Events, IPDA Events, and related events.'>
+        <for interface='plone.app.portlets.interfaces.IColumn'/>
+        <for interface='plone.app.portlets.interfaces.IDashboard'/>
+    </portlet>
+</portlets>

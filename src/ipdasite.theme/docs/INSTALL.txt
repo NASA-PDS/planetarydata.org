@@ -1,0 +1,20 @@
+Installation
+============
+
+Use Buildout_ with the plone.recipe.zope2instance recipe.
+
+* Add ``ipdasite.theme`` to the list of eggs to install, e.g.::
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        ipdasite.theme
+        
+* Re-run buildout, e.g. with::
+  
+    $ ./bin/buildout
+        
+
+.. References:
+.. _Buildout: http://www.buildout.org/

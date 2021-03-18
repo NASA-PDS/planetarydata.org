@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2011 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<object name='portal_catalog' meta_type='Plone Catalog Tool'>
+    <index name='lid' meta_type='FieldIndex'>
+        <indexed_attr value='lid' />
+    </index>
+    <index name='versionID' meta_type='FieldIndex'>
+        <indexed_attr value='versionID' />
+    </index>
+    <column value='versionID'/>
+</object>

@@ -1,0 +1,17 @@
+<div id='portal-colophon' metal:define-macro='colophon' i18n:domain='ipdasite.theme'>
+    <metal:slot define-slot='colophon' />
+    <div class='colophonWrapper' tal:define='ipdaVersion context/portal_properties/site_properties/ipdaVersion|string:?;'>
+        <ul>
+            <li>
+                <a href='http://plone.org'
+                    title='This site was built using the Plone Open Source CMS/WCM.'
+                    i18n:attributes='title title_built_with_plone;'
+                    i18n:translate='label_powered_by_plone'>
+                    Powered by Plone &amp; Python</a>
+            </li>
+            <li i18n:translate='ipdaWebsiteVersion'>
+                Version:&#x00a0;<span tal:replace='ipdaVersion' i18n:name='ipdaVersion'>1.0.0</span>
+            </li>
+        </ul>
+    </div>
+</div>

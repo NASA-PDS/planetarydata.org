@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2012 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure
+    xmlns='http://namespaces.zope.org/zope'
+    xmlns:genericsetup='http://namespaces.zope.org/genericsetup'>
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 Theme'
+        description='Upgrades the IPDA Site policy from profile 3 to 4 by updating the theme'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.upgrade34Theme'
+        sortkey='1'
+    />
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 TEG Restructuring'
+        description='IPDA Site Policy from profile 3 to 4 by moving TEG out of a borg.project and into a conventional folder'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.fixTEG'
+        sortkey='2'
+    />
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 Home Page Redo'
+        description='IPDA Site Policy from profile 3 to 4 by nuking and re-creating the home page'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.recreateHome'
+        sortkey='3'
+    />
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 Discussions'
+        description='IPDA Site Policy from profile 3 to 4 that provides the missing settings for plone.app.discussion'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.setupDiscussions'
+        sortkey='4'
+    />
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 Packages'
+        description='IPDA Site Policy from profile 3 to 4 setting up new views'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.setup34Views'
+        sortkey='5'
+    />
+    <genericsetup:upgradeStep
+        source='3'
+        destination='4'
+        title='3→4 Portlets'
+        description='IPDA Site Policy from profile 3 to 4 by updating portlets to the way that Emily Law prefers them'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.setup34Portlets'
+        sortkey='6'
+    />
+    <genericsetup:upgradeStep
+        source='4'
+        destination='5'
+        title='4→5'
+        description='IPDA Site Policy from profile 4 to 5 by doing nothing'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.nullUpgradeStep'
+        sortkey='1'
+    />
+    <genericsetup:upgradeStep
+        source='5'
+        destination='6'
+        title='5→6'
+        description='IPDA Site Policy from profile 5 to 6 by doing nothing'
+        profile='ipdasite.policy:default'
+        handler='ipdasite.policy.upgrades.nullUpgradeStep'
+        sortkey='1'
+    />
+    <!-- TODO: uninstall obsolete packages -->
+</configure>

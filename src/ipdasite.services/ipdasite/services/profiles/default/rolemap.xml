@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2011 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<rolemap>
+    <permissions>
+        <permission name='ipdasite.services: Add Service Registry' acquire='True'>
+            <role name='Manager' />
+            <role name='Contributor' />
+            <role name='Owner' />
+        </permission>
+        <permission name='ipdasite.services: Add Service' acquire='True'>
+            <role name='Manager' />
+            <role name='Contributor' />
+            <role name='Owner' />
+        </permission>
+        <permission name='ipdasite.services: Add Service Binding' acquire='True'>
+            <role name='Manager' />
+            <role name='Contributor' />
+            <role name='Owner' />
+        </permission>
+        <permission name='ipdasite.services: Add Specification Link' acquire='True'>
+            <role name='Manager' />
+            <role name='Contributor' />
+            <role name='Owner' />
+        </permission>
+        <permission name='ipdasite.services: Add Curator' acquire='True'>
+            <role name='Manager' />
+            <role name='Contributor' />
+            <role name='Owner' />
+        </permission>
+    </permissions>
+</rolemap>

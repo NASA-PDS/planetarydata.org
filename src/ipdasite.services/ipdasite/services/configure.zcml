@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2011 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure
+    xmlns='http://namespaces.zope.org/zope'
+    xmlns:five='http://namespaces.zope.org/five'
+    xmlns:i18n='http://namespaces.zope.org/i18n'
+    xmlns:genericsetup='http://namespaces.zope.org/genericsetup'
+    xmlns:zcml='http://namespaces.zope.org/zcml'
+    i18n_domain='ipdasite.service'>
+
+    <five:registerPackage package='.' initialize='.initialize' />
+    <include package='.interfaces' />
+    <include package='.browser' />
+    <include package='.content' />
+
+    <genericsetup:registerProfile
+        name='default'
+        title='ipdasite.services'
+        directory='profiles/default'
+        description='Default profile for the ipdasite.service package'
+        provides='Products.GenericSetup.interfaces.EXTENSION'
+    />
+
+    <include
+        zcml:condition='installed Products.GenericSetup.upgrade'
+        file='upgrades.zcml'
+    />
+
+</configure>

@@ -1,0 +1,82 @@
+<html xmlns='http://www.w3.org/1999/xhtml'
+    xml:lang='en'
+    lang='en'
+    xmlns:tal='http://xml.zope.org/namespaces/tal'
+    xmlns:metal='http://xml.zope.org/namespaces/metal'
+    xmlns:i18n='http://xml.zope.org/namespaces/i18n'
+    metal:use-macro='context/main_template/macros/master'
+    i18n:domain='ipdasite.services'>
+    <head>
+        <title>Specification Link</title>
+    </head>
+    <body>
+        <metal:css fill-slot='style_slot'>
+            <style type='text/css' media='all'
+                tal:content="string:@import url(${context/++resource++ipdasite-services.css});"></style>
+        </metal:css>
+        <metal:content-core fill-slot='content-core'>
+            <table class='ipdasiteServicesAttributeTable'>
+                <colgroup>
+                    <col class='ipdasiteServicesAttributeTableHeadings'/>
+                    <col class='ipdasiteServicesAttributeTableValues'/>
+                </colgroup>
+                <tbody>
+                    <tr tal:define='haveSpecObj view/haveSpecificationObject'>
+                        <th i18n:translate='ipdasiteServicesTableHeadingSpecification'>Specification:</th>
+                        <td>
+                            <span class='discreet' tal:condition='not:haveSpecObj'
+                                i18n:translate='ipdasiteServicesTableNoSpecObj'>
+                                No specification object set.
+                            </span>
+                            <tal:block condition='haveSpecObj'>
+                                <a href='#' title="It's a cool spec." tal:define='specObj nocall:context/specificationObject'
+                                    tal:attributes='href specObj/absolute_url; title specObj/Description'
+                                    tal:content='specObj/Title'>
+                                    http://x.com/service
+                                </a>
+                            </tal:block>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingUsageDescription'>Usage Description:</th>
+                        <td>
+                            <span class='discreet' tal:condition='not:context/usageDescription'
+                                i18n:translate='ipdasiteServicesTableHeadingNoUsageDescription'>
+                                No usage description given.
+                            </span>
+                            <span tal:condition='context/usageDescription' tal:replace='context/usageDescription'>
+                                Here's how you use the usage parameters.
+                            </span>
+                        </td>
+                    </tr>
+                    <tr tal:define='params context/usageParameters'>
+                        <th i18n:translate='ipdasiteServicesTableHeadingUsageParameters'>Usage Parameters:</th>
+                        <td>
+                            <span class='discreet' tal:condition='not:params'
+                                i18n:translate='ipdasiteServicesTableHeadingNoUsageParameters'>
+                                None listed.
+                            </span>
+                            <ul tal:condition='params'>
+                                <li tal:repeat='param params'>
+                                    <span tal:replace='param'>A param.</span>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingVersionID'>Version ID:</th>
+                        <td tal:content='context/versionID'>1.2.3</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingLID'>Logical Identifier:</th>
+                        <td tal:content='context/lid'>urn:whatever:blah</td>
+                    </tr>
+                    <tr>
+                        <th i18n:translate='ipdasiteServicesTableHeadingGUID'>GUID:</th>
+                        <td tal:content='context/guid'>urn:uuid:0f0734bc-a281-4801-92db-b2c6760997eb</td>
+                    </tr>
+                </tbody>
+            </table>
+        </metal:content-core>
+    </body>
+</html>

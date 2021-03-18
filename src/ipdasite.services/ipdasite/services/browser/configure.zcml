@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2011 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<configure xmlns='http://namespaces.zope.org'
+    xmlns:browser='http://namespaces.zope.org/browser'
+    i18n_domain='ipdasite.services'>
+    <include package='plone.app.contentmenu'/>
+    <include package='Products.CMFCore' file='permissions.zcml' />
+    <!-- Common CSS -->
+    <browser:resource
+        name='ipdasite-services.css'
+        file='stylesheets/services.css'
+    />
+
+    <!-- PDS Registry Service synchronization -->
+    <browser:page
+        for='Products.CMFCore.interfaces.ISiteRoot'
+        name='synchronizePDSRegistries'
+        class='.sync.PortalWideRegistrySyncer'
+        permission='cmf.ManagePortal'
+    />
+
+    <!-- Service Registry -->
+    <browser:resource name='serviceregistry.gif' file='images/serviceregistry.gif'/>
+    <browser:page
+        class='.views.ServiceRegistryView'
+        for='..interfaces.IServiceRegistry'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Service Registry.'
+        for='..interfaces.IServiceRegistry'
+        menu='plone_displayviews'
+        title='Service Registry view'
+    />
+
+    <!-- Service -->
+    <browser:resource name='service.gif' file='images/service.gif'/>
+    <browser:page
+        class='.views.ServiceView'
+        for='..interfaces.IService'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Service.'
+        for='..interfaces.IService'
+        menu='plone_displayviews'
+        title='Service view'
+    />
+
+    <!-- Service Binding -->
+    <browser:resource name='servicebinding.gif' file='images/servicebinding.gif'/>
+    <browser:page
+        class='.views.ServiceBindingView'
+        for='..interfaces.IServiceBinding'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Service Binding.'
+        for='..interfaces.IServiceBinding'
+        menu='plone_displayviews'
+        title='Service Binding view'
+    />
+
+    <!-- Specification Link -->
+    <browser:resource name='specificationlink.gif' file='images/specificationlink.gif'/>
+    <browser:page
+        class='.views.SpecificationLinkView'
+        for='..interfaces.ISpecificationLink'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Specification Link.'
+        for='..interfaces.ISpecificationLink'
+        menu='plone_displayviews'
+        title='Specification Link view'
+    />
+
+    <!-- Curator -->
+    <browser:resource name='curator.gif' file='images/curator.gif'/>
+    <browser:page
+        class='.views.CuratorView'
+        for='..interfaces.ICurator'
+        name='view'
+        permission='zope2.View'
+    />
+    <browser:menuItem
+        action='@@view'
+        description='Default representation of a Curator.'
+        for='..interfaces.ICurator'
+        menu='plone_displayviews'
+        title='Curator view'
+    />
+
+
+</configure>

@@ -1,0 +1,143 @@
+/* Copyright 2012 California Institute of Technology. ALL RIGHTS
+ * RESERVED. U.S. Government Sponsorship acknowledged.
+ */
+
+/* Plone's public.css ratchets it down to 80%; pump it back up. */
+#content {
+    font-size: 100%;
+}
+
+/* Where we put the searchbox it abuts the right edge, so clear it a bit. */
+#portal-searchbox {
+    margin-right: 1em;
+}
+
+/* Global nav */
+#portal-globalnav {
+    font-size: 100%;
+    background-color: transparent;
+    border: none;
+}
+#portal-globalnav li {
+    padding-left: 1.1em;
+    margin-left: 1em;
+    border-left: dotted 1px #e0e8ef;
+}
+#portal-globalnav li.first {
+    border: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+#portal-globalnav li a {
+    color: #fff;
+    padding: 0.1em;
+    background-color: transparent;
+    border-right: none;
+}
+
+/* Site actions */
+#portal-siteactions li {
+    margin-right: 2em;
+}
+
+/* Portlets */
+#content dl.portlet dd.portletItem, #content dl.portlet dd.portletFooter, #content dl.portletError dd {
+    margin-left: 0;
+}
+dd.portletFooter {
+    padding-top: 0 !important;
+}
+dd.portletItem {
+    padding-bottom: 0 !important;
+}
+
+/* Authoring */
+#edit-bar li {
+    list-style: none;
+    display: inline;
+}
+#edit-bar a {
+    text-decoration: none;
+}
+
+/* Bring back some of Plone's niceties */
+#content a:link, dl.portlet a:link {
+    text-decoration: none;
+}
+#content #portal-breadcrumbs a:link, #content #edit-bar a {
+    border-bottom: none;
+}
+#content #edit-bar a:hover {
+    color: #3388aa !important;
+}
+
+/* Search */
+.livesearchContainer {
+    background: white !important;
+    border: solid 1px black !important;
+}
+
+/* Override the theme */
+#header {
+    height: 11em;
+}
+#menu {
+    top: 8em;
+}
+
+/* Footer icons for member agencies */
+#ipda-member-agencies {
+    padding-bottom: 2em;
+    text-align: center;
+    clear: left;
+}
+#ipda-member-agencies li {
+    display: inline;
+}
+#ipda-member-agencies li a, #ipda-member-agencies li a:link, #ipda-member-agencies li a:visited {
+    text-decoration: none;
+    background: url('++resource++ipdasite.theme.images/agencies-sprite.png') no-repeat;
+    padding-bottom: 17px;
+    line-height: 32px;
+    margin-left: 1em;
+}
+#agencyIcon-asi {
+    background-position: 0 0 !important;
+    padding-left: 77px;
+}
+#agencyIcon-cnes {
+    background-position: 0 -64px !important;
+    padding-left: 29px;
+}
+#agencyIcon-cnsa {
+    background-position: 0 -192px !important;
+    padding-left: 41px;
+}
+#agencyIcon-dlr {
+    background-position: 0 -128px !important;
+    padding-left: 37px;
+}
+#agencyIcon-esa {
+    background-position: 0 -256px !important;
+    padding-left: 33px;
+}
+#agencyIcon-isro {
+    background-position: 0 -32px !important;
+    padding-left: 33px;
+}
+#agencyIcon-jaxa {
+    background-position: 0 -288px !important;
+    padding-left: 53px;
+}
+#agencyIcon-nasa {
+    background-position: 0 -96px !important;
+    padding-left: 39px;
+}
+#agencyIcon-ukspace {
+    background-position: 0 -224px !important;
+    padding-left: 33px;
+}
+#agencyIcon-iki {
+    background-position: 0 -320px !important;
+    padding-left: 77px;
+}

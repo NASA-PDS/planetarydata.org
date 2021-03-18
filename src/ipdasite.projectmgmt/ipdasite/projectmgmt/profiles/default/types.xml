@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+Copyright 2008 California Institute of Technology. ALL RIGHTS
+RESERVED. U.S. Government Sponsorship acknowledged.
+-->
+<object name='portal_types' meta_type='Plone Types Tool'>
+    <object name='IPDA Home'                  meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='IPDA Event'                 meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='Project Folder'             meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='IPDA Project'               meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='IPDA Document'              meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='IPDA File'                  meta_type='Factory-based Type Information with dynamic views'/>
+    <object name='Steering Committee Display' meta_type='Factory-based Type Information with dynamic views'/>
+</object>
