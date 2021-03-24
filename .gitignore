@@ -20,3 +20,5 @@ MASTER-PACKAGE
 robot_output.xml
 typescript
 _build
+package*.json
+node_modules/
