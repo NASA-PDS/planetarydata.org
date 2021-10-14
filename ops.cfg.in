@@ -51,7 +51,6 @@ extends =
     etc/versions/known-good-versions.cfg
 parts =
     lxml
-    ${buildout:registry-service-parts}
     zeo
     zope
     zope-debug
